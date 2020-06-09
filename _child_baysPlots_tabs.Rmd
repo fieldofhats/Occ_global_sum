@@ -1,0 +1,16 @@
+---
+title: ""
+output: html_document
+---
+
+```{r, echo=F}
+#in.param<-model.names[[2]]
+gg.temp<-plot.gg %>% 
+  filter(Parameter == in.param)
+#ggs_traceplot(gg.temp)
+p1<-ggs_traceplot(gg.temp)
+p2<-ggs_density(gg.temp)
+p3<-ggs_autocorrelation(gg.temp)
+grid.arrange(p1, p2, p3,layout_matrix = rbind(c(1, 1),
+                        c(3,4)))
+```

@@ -1,0 +1,114 @@
+---
+title: ""
+author:
+date: 
+output: 
+  html_document
+
+---
+
+```{r, include=F}
+
+library('mcmcplots')
+library('coda')
+library('ggmcmc')
+library('tidyverse')
+library(bayestestR)
+library(knitr)
+library(kableExtra)
+library(gridExtra)
+library(logspline)
+#library(nimble)
+
+### get model outputs:
+in.path<-'C:/Hatfield/scripts/R/Projects/Meso/meso_modeling/occupancy/OccEstimatesbyYear/data/out/occ_output/fm_models_out/GlobalModels'
+in.models<-list.files(in.path)
+
+in.models<-in.models[grep ( 'RedFox',in.models )]
+
+
+yrs<-c('2016', '2017', '2018', '2019')
+tab.models <-lapply(yrs, function(x) in.models[grep(paste0('_', x, '_'),in.models)])
+names(tab.models)<-yrs
+
+
+```
+<br><br><br><br><br><br><br>
+
+# results by year {.tabset}
+
+## 2016
+
+```{r echo = F, results = 'asis'}
+
+out.path <- tab.models[['2016']]
+
+if(identical(out.path,character(0))){
+  cat('\n\n\n\n\n', 'no results')
+}else{
+  model.path<-file.path(in.path,out.path)
+  res <- knitr::knit_child('./_model_results_summary_Global.Rmd', quiet = TRUE)
+  cat(res, sep = '\n') 
+}
+
+
+
+```
+
+## 2017
+
+```{r echo = F, results = 'asis'}
+
+out.path <- tab.models[['2017']]
+
+if(identical(out.path,character(0))){
+  cat('\n\n\n\n\n', 'no results')
+}else{
+  model.path<-file.path(in.path,out.path)
+  res <- knitr::knit_child('./_model_results_summary_Global.Rmd', quiet = TRUE)
+  cat(res, sep = '\n') 
+}
+
+
+
+```
+
+## 2018
+
+```{r echo = F, results = 'asis'}
+
+out.path <- tab.models[['2018']]
+
+if(identical(out.path,character(0))){
+  cat('\n\n\n\n\n', 'no results')
+}else{
+  model.path<-file.path(in.path,out.path)
+  res <- knitr::knit_child('./_model_results_summary_Global.Rmd', quiet = TRUE)
+  cat(res, sep = '\n') 
+}
+
+
+
+```
+
+## 2019
+
+```{r echo = F, results = 'asis'}
+
+out.path <- tab.models[['2019']]
+
+if(identical(out.path,character(0))){
+  cat('\n\n\n\n\n', 'no results')
+}else{
+  model.path<-file.path(in.path,out.path)
+  res <- knitr::knit_child('./_model_results_summary_Global.Rmd', quiet = TRUE)
+  cat(res, sep = '\n') 
+}
+
+
+
+```
+
+#
+
+

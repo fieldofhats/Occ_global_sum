@@ -1,0 +1,31 @@
+name: "2019 SC results"
+output_dir: "docs"
+navbar:
+  title: "occupancy global models"
+  left:
+  - text: "Home"
+    href: index.html
+  - text: "AmericanBadger"
+    href: AmericanBadgerSummary_gl.html
+  - text: "AmericanBlackBear"
+    href: AmericanBlackBearSummary_gl.html
+  - text: "AmericanMarten"
+    href: AmericanMartenSummary_gl.html
+  - text: "Bobcat"
+    href: BobcatSummary_gl.html
+  - text: "Coyote"
+    href: CoyoteSummary_gl.html
+  - text: "LongTailedWeasel"
+    href: LongTailedWeaselSummary_gl.html
+  - text: "MountainLion"
+    href: MountainLionSummary_gl.html
+  - text: "RedFox"
+    href: RedFoxSummary_gl.html
+  - text: "ShortTailedWeasel"
+    href: ShortTailedWeaselSummary_gl.html    
+  - text: "WhiteTailedJackrabbit"
+    href: WhiteTailedJackrabbitSummary_gl.html
+output:
+  html_document:
+    theme: cosmo
+

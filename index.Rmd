@@ -1,0 +1,22 @@
+---
+title: "Global Occupancy Results"
+output: 
+  html_document
+---
+
+<br><br><br><br><br><br/>
+
+
+[Back to Occ Models](https://fieldofhats.github.io/Occ_intro_summary/ )
+
+### occupancy global models:  
+### global models for evaluating parameters on detection  
+
+### by species
+### by year
+
+#### select species tab:
+
+
+
+

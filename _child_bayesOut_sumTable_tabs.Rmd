@@ -1,0 +1,36 @@
+---
+title: ""
+output: html_document
+---
+
+```{r, echo = F}
+## summary table
+# model.names<-colnames(plot.dat)
+model.modes<-apply(plot.dat, 2, catch.map_estimate)
+model.mean<-round(apply(plot.dat,2,mean), 3)
+n.eff<-round(effectiveSize(plot.mcmc), 0)
+hdi<-apply(plot.dat,2,FUN = ci,method = "HDI")
+
+lower<-round(c(unlist(lapply(hdi,function(x) x$CI_low))), 2)
+upper<-round(c(unlist(lapply(hdi,function(x) x$CI_high))),2)
+
+bayes.p<-apply(plot.mcmc,2,catch.p_map)
+
+
+ 
+summary.table<-tibble(param = model.names, 
+                      n_effective = n.eff, 
+                      mean = model.mean, 
+                      mode = model.modes, 
+                      hdi_89pct_lower = lower, 
+                      hdi_89pct_upper = upper, 
+                      bayes_P = bayes.p
+                      ) %>% 
+  left_join(cov.alpha, by = c('param' = 'alpha')) %>% 
+  select(param, covariate, n_effective, mean, mode, hdi_89pct_lower, hdi_89pct_upper, bayes_P)
+
+summary.table %>% 
+  mutate(covariate = cell_spec(covariate, color = ifelse(bayes_P <= .11, 'red', 'gray' ))) %>% 
+  kable(escape = F) %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left")
+```
