@@ -21,7 +21,8 @@ library(logspline)
 #library(nimble)
 
 ### get model outputs:
-in.path<-'C:/Hatfield/scripts/R/Projects/Meso/meso_modeling/occupancy/OccEstimatesbyYear/data/out/occ_output/fm_models_out/GlobalModels'
+# in.path<-'C:/Hatfield/scripts/R/Projects/Meso/meso_modeling/occupancy/OccEstimatesbyYear/data/out/occ_output/fm_models_out/GlobalModels'
+in.path<-'/mnt/c/Hatfield/scripts/R/Projects/Meso/meso_modeling/occupancy/OccEstimatesbyYear/data/out/occ_output/fm_models_out/GlobalModels'
 in.models<-list.files(in.path)
 
 in.models<-in.models[grep ( 'LongTailedWeasel',in.models )]
